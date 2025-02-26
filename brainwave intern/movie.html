@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <title>Movie Website | Landing Page</title>
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <a href="#" class="logo">uMovies</a>
+        <ul class="nav">
+            <li><a href="#"><i class="fa fa-home"></i></a></li>
+            <li><a href="#">Adults</a></li>
+            <li><a href="#">Kids</a></li>
+            <li><a href="#">Trending</a></li>
+            <li><a href="#">My List</a></li> 
+        </ul>
+        <div class="search">
+            <input type="text" placeholder="Search">
+            <i class="fa fa-search"></i>
+        </div>
+    </header>
+
+    <!-- Banner Section -->
+    <div class="banner">
+        <div class="content">
+            <img id="movie-image" src="./images/OIP.jpg" alt="Movie Poster" class="movie-title"/>
+            
+            <h2 id="movie-title">Movie Name</h2>
+            
+            <h4>
+                <span id="movie-year">Year</span> • 
+                <span id="movie-rating">Rating</span> • 
+                <span id="movie-duration">Duration</span> • 
+                <span id="movie-genre">Genre</span>
+            </h4>
+            
+            <p id="movie-description">
+                Select a movie from the list below to see details here.
+            </p>
+
+            <div class="button">
+                <a href="#"><i class="fa fa-play"></i> Watch</a>
+                <a href="#"><i class="fa fa-plus"></i> My List</a>
+            </div>
+        </div>
+
+        <!-- Movie Carousel -->
+        <div class="carousel-box">
+            <div class="carousel">
+                <div class="carousel-item" data-movie="littleMermaid" onclick="updateMovieDetails('littleMermaid');">
+                    <img src="./images/movies/little-mermaid.jpg" alt="The Little Mermaid">
+                </div>
+                <div class="carousel-item" data-movie="devara" onclick="updateMovieDetails('devara');">
+                    <img src="./images/movies/Devara.jpg" alt="Devara">
+                </div>
+                <div class="carousel-item" data-movie="avatar" onclick="updateMovieDetails('avatar');">
+                    <img src="./images/movies/Avatar.png" alt="Avatar">
+                </div>
+                <div class="carousel-item" data-movie="chhava" onclick="updateMovieDetails('chhava');">
+                    <img src="./images/movies/chhava-.png" alt="Chhava">
+                </div>
+                <div class="carousel-item" data-movie="conjuring" onclick="updateMovieDetails('conjuring');">
+                    <img src="./images/movies/conguring.jpg" alt="The Conjuring">
+                </div>
+                <div class="carousel-item" data-movie="oracle" onclick="updateMovieDetails('oracle');">
+                    <img src="./images/movies/oracle.jpg" alt="Oracle">
+                </div>
+            </div> 
+        </div>
+        
+        <!-- Watch Trailer Button -->
+        <a href="#" class="play" onclick="toggleVideo();">
+            <i class="fa fa-play-circle-o"></i> Watch Trailer
+        </a>
+
+        <!-- Social Media Links -->
+        <ul class="sci">
+            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube-play"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+            <li><a href="#"><i class="fa fa-telegram"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+        </ul>
+    </div>
+
+    <!-- Trailer Popup -->
+    <div class="trailer">
+        <video id="trailer-video" src="./assets/25168-347958130_small.mp4" muted controls></video>
+        <img class="close" src="./images/close.png" alt="Close" onclick="toggleVideo();"/>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./js/script.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.carousel').carousel();
+        });
+
+        // Movie Details Update
+        function updateMovieDetails(movie) {
+            let movies = {
+                littleMermaid: {
+                    title: "The Little Mermaid",
+                    year: "2023",
+                    rating: "PG",
+                    duration: "2h 10min",
+                    genre: "Fantasy, Musical",
+                    description: "A young mermaid makes a deal with a sea witch to experience life on land."
+                },
+                devara: {
+                    title: "Devara",
+                    year: "2024",
+                    rating: "12+",
+                    duration: "2h 45min",
+                    genre: "Action, Drama",
+                    description: "A warrior fights against corruption and oppression in his kingdom."
+                },
+                avatar: {
+                    title: "Avatar",
+                    year: "2009",
+                    rating: "PG-13",
+                    duration: "2h 42min",
+                    genre: "Sci-Fi, Adventure",
+                    description: "A marine on an alien planet must decide where his loyalty lies."
+                },
+                chhava: {
+                    title: "Chhava",
+                    year: "2025",
+                    rating: "16+",
+                    duration: "2h 30min",
+                    genre: "Historical, Drama",
+                    description: "A historical retelling of the life and struggles of a legendary warrior."
+                },
+                conjuring: {
+                    title: "The Conjuring",
+                    year: "2013",
+                    rating: "R",
+                    duration: "1h 52min",
+                    genre: "Horror, Thriller",
+                    description: "Paranormal investigators help a family haunted by a dark presence."
+                },
+                oracle: {
+                    title: "Oracle",
+                    year: "2024",
+                    rating: "14+",
+                    duration: "2h 00min",
+                    genre: "Mystery, Thriller",
+                    description: "A woman discovers she has the ability to foresee tragic events."
+                }
+            };
+
+            let selectedMovie = movies[movie];
+            if (selectedMovie) {
+                document.getElementById("movie-image").src = `./images/movies/${movie}.jpg`;
+                document.getElementById("movie-title").innerText = selectedMovie.title;
+                document.getElementById("movie-year").innerText = selectedMovie.year;
+                document.getElementById("movie-rating").innerText = selectedMovie.rating;
+                document.getElementById("movie-duration").innerText = selectedMovie.duration;
+                document.getElementById("movie-genre").innerText = selectedMovie.genre;
+                document.getElementById("movie-description").innerText = selectedMovie.description;
+            }
+        }
+
+        // Trailer Popup Toggle
+        function toggleVideo() {
+            let trailer = document.querySelector(".trailer");
+            let video = document.getElementById("trailer-video");
+            trailer.classList.toggle("active");
+            video.paused ? video.play() : video.pause();
+        }
+    </script>
+
+</body>
+</html>
+
+

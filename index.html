@@ -2,10 +2,107 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="./font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+    <link rel="stylesheet" href="./css/main.css"/>
+    <title>Website for online movie|| Landing Page</title>
 </head>
 <body>
-    
+    <header>
+        <a href="#" class="logo">Filmora</a>
+        <ul class="nav">
+            <li><a href="#"><i class="fa fa-home" aria-hidden="true"></i></a></li>
+            <li><a href="#">Adults</a></li>
+            <li><a href="#">Kids</a></li>
+            <li><a href="#">Trend</a></li>
+            <li><a href="#">My List</a></li> 
+        </ul>
+        <div class="search">
+            <input type="text" placeholder="Search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+    </header>
+
+    <div class="banner">
+        <div class="content active">
+            <img id="movie-title" src="./images/movies/R.png" alt="Movie poster" class="movie-title"/>
+            <h4>
+                <span id="movie-year">2023</span>
+                <span><i id="movie-rating">12+</i></span>
+                <span id="movie-duration">2h 14min</span>
+                <span id="movie-genre">Romance</span>
+            </h4>
+             <p id="movie-description">
+                Ariel, a young and adventurous mermaid, dreams of exploring the human world. 
+                Defying her father, King Triton, she makes a dangerous deal with the sea witch Ursula 
+                to trade her voice for human legs. As she embarks on her journey to win the heart of Prince Eric, 
+                she discovers the true cost of her choices and fights to reclaim her destiny. Filled with breathtaking visuals, 
+                enchanting songs, and a magical underwater world, The Little Mermaid is a heartwarming tale of love,
+                 courage, and self-discovery.
+             </p>
+            <div class="button">
+                <a href="#"><i class="fa fa-play" aria-hidden="true"></i> Watch</a>
+                <a href="#"><i class="fa fa-plus" aria-hidden="true"></i> My List</a>
+            </div>
+        </div>
+
+        <div class="carousel-box">
+            <div class="carousel">
+                <div class="carousel-item" data-movie="The-Black-Demon" onclick="updateMovieDetails('theblackdemon');">
+                    <img src="./images/Black dameon.jpg" alt="">
+                </div>
+                <div class="carousel-item" data-movie="littleMermaid" onclick="updateMovieDetails('littleMermaid');">
+                    <img src="./images/movies/little-mermaid.jpg" alt="">
+                </div>
+                <div class="carousel-item" data-movie="devara" onclick="updateMovieDetails('devara');">
+                    <img src="./images/ntr-devara-first-song-to-be-special_b_1908231040.jpg" alt="">
+                </div>
+                <div class="carousel-item" data-movie="avatar" onclick="updateMovieDetails('avatar');">
+                    <img src="./images/movies/Avatar.png" alt="">
+                </div>
+                <div class="carousel-item" data-movie="chhava" onclick="updateMovieDetails('titanic');">
+                    <img src="./images/movies/tM.jpg" alt="">
+                </div>
+                <div class="carousel-item" data-movie="conjuring" onclick="updateMovieDetails('conjuring');">
+                    <img src="./images/movies/conguring.jpg" alt="">
+                </div>
+                <!--<div class="carousel-item" data-movie="oracle" onclick="updateMovieDetails('oracle');">
+                    <img src="./images/movies/oracle.jpg" alt="">
+                </div>-->
+            </div> 
+        </div>
+        
+        <a href="#" class="play" onclick="toggleVideo();">
+            <i class="fa fa-play-circle-o" aria-hidden="true"></i> Watch trailer
+        </a>
+
+        <ul class="sci">
+            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-youtube-play" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-telegram" aria-hidden="true"></i></a></li>
+            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+        </ul>
+    </div>
+
+    <div class="trailer">
+        <video src="./assets/25168-347958130_small.mp4" muted controls autoplay></video>
+        <img class="close" src="./images/close.png" alt="" onclick="toggleVideo();"/>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="./js/script.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            $('.carousel').carousel();
+        });
+    </script>
 </body>
 </html>
+
+
+
+
